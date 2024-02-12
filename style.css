@@ -9,6 +9,14 @@
 body{
     background-color: #323437;
 }
+nav{
+    background-color: #e2b714;
+    padding: 10px 20px;
+    color: #edece1;
+    font-size: 14px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
 .container{
     width: 100%;
     padding: 20px;
