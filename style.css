@@ -6,3 +6,51 @@
     box-sizing: border-box;
     font-family: 'Poppins';
 }
+body{
+    background-color: #323437;
+}
+.container{
+    width: 100%;
+    padding: 20px;
+}
+.container span{
+    color: #e2b714;
+    font-size: 18px;
+    padding: 7px 10px;
+    background-color: rgba(255, 255, 255, 0.045);
+    border-radius: 5px;
+}
+.container p{
+    margin: 20px 0;
+    width: 100%;
+    text-align: center;
+    color: #5d5f62;
+    font-size: 20px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.045);
+    border-radius: 5px;
+}
+.container input{
+    display: block;
+    width: 450px;
+    padding: 10px;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.045);
+    margin: 0 auto;
+    color: white;
+}
+.container i{
+    width: 100%;
+    color: #5d5f62;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+.container i:hover{
+    color: #7b7b7b;
+}
