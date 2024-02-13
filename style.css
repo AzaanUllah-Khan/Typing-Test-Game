@@ -22,7 +22,7 @@ nav{
     padding: 20px;
     margin-top: 10px;
 }
-.container span{
+.container span#time{
     color: #e2b714;
     font-size: 18px;
     padding: 7px 10px;
