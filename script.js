@@ -1,5 +1,8 @@
 var story;
 var time = 0
+var minute = 0
+var isTimerStarted = false
+document.getElementById("time").innerHTML = `${time}s`
 var paragraphs = [
     "The old, abandoned house on the hill was said to be haunted. Nobody dared to go near it after dark, for fear of encountering the ghostly figure that was rumored to wander its halls. One night, a group of teenagers decided to explore the house, determined to prove that the haunting was just a myth. As they crept through the dusty rooms, they heard strange noises and saw shadowy figures out of the corner of their eyes. Terrified, they ran out of the house and never returned, convinced that the rumors were true.",
     "Sarah had always been afraid of spiders, so when she found a large, hairy one crawling across her bedroom ceiling, she screamed for her dad to come and get rid of it. Her dad, amused by her fear, grabbed a glass and a piece of paper and gently captured the spider, taking it outside to release it. Sarah watched from a safe distance, relieved that the spider was gone. From that day on, she made sure to check her room carefully before going to bed.",
@@ -26,11 +29,17 @@ var startTime = () => {
     time = 0;
     setInterval(()=>{
         time++
-        console.log(time);
+        document.getElementById("time").innerHTML = `${time}s`
     },1000)
 }
 showPara()
 var reload = () => {
     showPara()
 }
+document.getElementById("typing").addEventListener("input",()=>{
+    if(!isTimerStarted){
+        startTime()
+        isTimerStarted = true
+    }
+})
 document.getElementById("reload").addEventListener("click",reload)
