@@ -20,6 +20,7 @@ nav{
 .container{
     width: 100%;
     padding: 20px;
+    margin-top: 10px;
 }
 .container span{
     color: #e2b714;
