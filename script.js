@@ -22,3 +22,7 @@ var showPara = () => {
     document.getElementById("para").innerHTML = paragraphs[story]
 }
 showPara()
+var reload = () => {
+    showPara()
+}
+document.getElementById("reload").addEventListener("click",reload)
