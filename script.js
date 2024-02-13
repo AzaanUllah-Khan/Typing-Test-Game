@@ -1,6 +1,8 @@
 var story;
 var time = 0
 var minute = 0
+var currentIndex = -1;
+var myInterval;
 var isTimerStarted = false
 document.getElementById("time").innerHTML = `${time}s`
 var paragraphs = [
@@ -21,28 +23,44 @@ var paragraphs = [
     "The alien invasion was thwarted by a group of brave humans who fought back against the extraterrestrial invaders, saving the Earth from destruction. With courage and determination, they repelled the aliens and sent them fleeing back into space, never to return. The world celebrated their victory, grateful for the heroes who had saved them from annihilation. And as the aliens' ships disappeared into the depths of space, the humans knew that they were safe once more, thanks to their bravery and unity."
 ];
 var showPara = () => {
+    clearInterval(myInterval)
+    time = 0;
+    document.getElementById("time").innerHTML = `${time}s`
+    isTimerStarted = false
+    document.getElementById("typing").value = ''
     document.getElementById("para").innerHTML = ""
-    story = Math.floor(Math.random()*paragraphs.length)
-    console.log(story);
-    for(i=0;i<paragraphs[story].length;i++){
-        document.getElementById("para").innerHTML += "<span>"+paragraphs[story][i]+"</span>"
+    story = Math.floor(Math.random() * paragraphs.length)
+    for (i = 0; i < paragraphs[story].length; i++) {
+        document.getElementById("para").innerHTML += `<span id='${i}'>${paragraphs[story][i]}</span>`
     }
 }
 var startTime = () => {
     time = 0;
-    setInterval(()=>{
+    myInterval = setInterval(timer, 1000);
+    function timer() {
         time++
         document.getElementById("time").innerHTML = `${time}s`
-    },1000)
+    }
 }
 showPara()
 var reload = () => {
     showPara()
 }
-document.getElementById("typing").addEventListener("input",()=>{
-    if(!isTimerStarted){
+document.getElementById("typing").addEventListener("input", () => {
+    document.addEventListener("keyup", function (event) {
+        if (event.key === "Backspace") {
+            document.getElementById(currentIndex + 1).style.color = "#5d5f62"
+        }
+    });
+    if (!isTimerStarted) {
         startTime()
         isTimerStarted = true
     }
+    currentIndex = document.getElementById("typing").value.length - 1
+    if (document.getElementById("typing").value[currentIndex] == document.getElementById(currentIndex).innerText) {
+        document.getElementById(currentIndex).style.color = "white"
+    } else {
+        document.getElementById(currentIndex).style.color = "#ca4754"
+    }
 })
-document.getElementById("reload").addEventListener("click",reload)
+document.getElementById("reload").addEventListener("click", reload)
