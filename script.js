@@ -1,3 +1,4 @@
+var story;
 var paragraphs = [
     "The old, abandoned house on the hill was said to be haunted. Nobody dared to go near it after dark, for fear of encountering the ghostly figure that was rumored to wander its halls. One night, a group of teenagers decided to explore the house, determined to prove that the haunting was just a myth. As they crept through the dusty rooms, they heard strange noises and saw shadowy figures out of the corner of their eyes. Terrified, they ran out of the house and never returned, convinced that the rumors were true.",
     "Sarah had always been afraid of spiders, so when she found a large, hairy one crawling across her bedroom ceiling, she screamed for her dad to come and get rid of it. Her dad, amused by her fear, grabbed a glass and a piece of paper and gently captured the spider, taking it outside to release it. Sarah watched from a safe distance, relieved that the spider was gone. From that day on, she made sure to check her room carefully before going to bed.",
@@ -15,3 +16,9 @@ var paragraphs = [
     "The ghost of the old lighthouse keeper was said to haunt the tower, but when a group of teenagers investigated, they discovered the truth behind the legend. It turned out that the 'ghost' was just an old man who had been living in the tower, trying to scare people away so he could search for a hidden treasure. Embarrassed by their mistake, the teenagers helped the old man find the treasure, and they all became friends, laughing at the misunderstanding.",
     "The alien invasion was thwarted by a group of brave humans who fought back against the extraterrestrial invaders, saving the Earth from destruction. With courage and determination, they repelled the aliens and sent them fleeing back into space, never to return. The world celebrated their victory, grateful for the heroes who had saved them from annihilation. And as the aliens' ships disappeared into the depths of space, the humans knew that they were safe once more, thanks to their bravery and unity."
 ];
+var showPara = () => {
+    story = Math.floor(Math.random()*paragraphs.length)
+    console.log(story);
+    document.getElementById("para").innerHTML = paragraphs[story]
+}
+showPara()
