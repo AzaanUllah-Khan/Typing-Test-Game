@@ -22,6 +22,20 @@ nav{
     padding: 20px;
     margin-top: 10px;
 }
+.container p span{
+    height: auto;
+    position: relative;
+}
+.container p span::after{
+    content: "";
+    height: 100%;
+    width: 2px;
+    border-radius: 10px;
+    background-color: #e2b714;
+    position: absolute;
+    right: -4px;
+    display: none;
+}
 .container span#time{
     color: #e2b714;
     font-size: 18px;
