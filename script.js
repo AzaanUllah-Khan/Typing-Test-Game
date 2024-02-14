@@ -6,6 +6,7 @@ var myInterval;
 var isTimerStarted = false
 document.getElementById("time").innerHTML = `${time}s`
 var paragraphs = [
+    "hhh",
     "The old, abandoned house on the hill was said to be haunted. Nobody dared to go near it after dark, for fear of encountering the ghostly figure that was rumored to wander its halls. One night, a group of teenagers decided to explore the house, determined to prove that the haunting was just a myth. As they crept through the dusty rooms, they heard strange noises and saw shadowy figures out of the corner of their eyes. Terrified, they ran out of the house and never returned, convinced that the rumors were true.",
     "Sarah had always been afraid of spiders, so when she found a large, hairy one crawling across her bedroom ceiling, she screamed for her dad to come and get rid of it. Her dad, amused by her fear, grabbed a glass and a piece of paper and gently captured the spider, taking it outside to release it. Sarah watched from a safe distance, relieved that the spider was gone. From that day on, she made sure to check her room carefully before going to bed.",
     "The spaceship landed in the middle of the town square, shocking the residents who gathered around to see who—or what—had arrived from another planet. The door of the spaceship opened, and out stepped a group of friendly aliens, waving to the crowd. They had come in peace, seeking to learn about life on Earth. The townspeople, initially fearful, soon warmed to the aliens and welcomed them with open arms. Together, they exchanged knowledge and formed a bond that would last for generations.",
@@ -39,13 +40,7 @@ var startTime = () => {
     myInterval = setInterval(timer, 1000);
     function timer() {
         time++
-        if (time == 59) {
-            time = 0
-            minute++
-            document.getElementById("time").innerHTML = `${minute}:${time}s`
-        } else {
-            document.getElementById("time").innerHTML = `${time}s`
-        }
+        document.getElementById("time").innerHTML = `${time}s`
     }
 }
 showPara()
@@ -75,6 +70,12 @@ var checkEnd = () => {
         }
         let accuracy = ((correctChars / totalChars) * 100).toFixed(2);
         alert(`Accuracy: ${accuracy}%`);
+
+        clearInterval(myInterval)
+        time = 0;
+        minute = 0;
+        document.getElementById("time").innerHTML = `${time}s`
+        isTimerStarted = false
     }
 }
 var changeColor = () => {
@@ -87,12 +88,12 @@ var changeColor = () => {
         let nextSibling = currentElement.nextSibling;
         if (prevSibling) {
             prevSibling.lastChild.style.opacity = "0";
-        }else{
+        } else {
             currentElement.lastChild.style.opacity = "0"
         }
         if (nextSibling) {
             nextSibling.lastChild.style.opacity = "0";
-        }else{
+        } else {
             currentElement.lastChild.style.opacity = "0"
         }
     }
