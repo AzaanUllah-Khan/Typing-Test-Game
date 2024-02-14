@@ -32,7 +32,7 @@ var showPara = () => {
     document.getElementById("para").innerHTML = ""
     story = Math.floor(Math.random() * paragraphs.length)
     for (i = 0; i < paragraphs[story].length; i++) {
-        document.getElementById("para").innerHTML += `<span id='${i}'>${paragraphs[story][i]}</span>`
+        document.getElementById("para").innerHTML += `<span id='${i}' style="margin: 0 1px 0 2px">${paragraphs[story][i]}<pre></pre></span>`
     }
 }
 var startTime = () => {
@@ -77,12 +77,25 @@ var checkEnd = () => {
         alert(`Accuracy: ${accuracy}%`);
     }
 }
-
 var changeColor = () => {
-    if (document.getElementById("typing").value[currentIndex] == document.getElementById(currentIndex).innerText) {
-        document.getElementById(currentIndex).style.color = "white"
-    } else {
-        document.getElementById(currentIndex).style.color = "#ca4754"
+    if (currentIndex >= 0 && currentIndex < paragraphs[story].length) {
+        let currentElement = document.getElementById(currentIndex);
+        currentElement.style.color = document.getElementById("typing").value[currentIndex] === currentElement.innerText ? "white" : "#ca4754";
+        currentElement.lastChild.style.opacity = "0.75";
+
+        let prevSibling = currentElement.previousSibling;
+        let nextSibling = currentElement.nextSibling;
+        if (prevSibling) {
+            prevSibling.lastChild.style.opacity = "0";
+        }else{
+            currentElement.lastChild.style.opacity = "0"
+        }
+        if (nextSibling) {
+            nextSibling.lastChild.style.opacity = "0";
+        }else{
+            currentElement.lastChild.style.opacity = "0"
+        }
     }
 }
+
 document.getElementById("reload").addEventListener("click", showPara)
