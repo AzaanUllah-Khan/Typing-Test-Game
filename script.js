@@ -49,9 +49,6 @@ var startTime = () => {
     }
 }
 showPara()
-var reload = () => {
-    showPara()
-}
 document.getElementById("typing").addEventListener("input", () => {
     document.addEventListener("keyup", function (event) {
         if (event.key === "Backspace") {
@@ -66,13 +63,21 @@ document.getElementById("typing").addEventListener("input", () => {
     checkEnd()
 })
 var checkEnd = () => {
-    changeColor()
-    console.log(currentIndex, "type");
-    console.log(paragraphs[story].length - 1, "para");
+    changeColor();
     if (currentIndex == paragraphs[story].length - 1) {
-        alert("done")
+        let typedText = document.getElementById("typing").value;
+        let totalChars = paragraphs[story].length;
+        let correctChars = 0;
+        for (let i = 0; i < totalChars; i++) {
+            if (typedText[i] === paragraphs[story][i]) {
+                correctChars++;
+            }
+        }
+        let accuracy = ((correctChars / totalChars) * 100).toFixed(2);
+        alert(`Accuracy: ${accuracy}%`);
     }
 }
+
 var changeColor = () => {
     if (document.getElementById("typing").value[currentIndex] == document.getElementById(currentIndex).innerText) {
         document.getElementById(currentIndex).style.color = "white"
@@ -80,4 +85,4 @@ var changeColor = () => {
         document.getElementById(currentIndex).style.color = "#ca4754"
     }
 }
-document.getElementById("reload").addEventListener("click", reload)
+document.getElementById("reload").addEventListener("click", showPara)
