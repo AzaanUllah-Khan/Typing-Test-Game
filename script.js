@@ -25,6 +25,7 @@ var paragraphs = [
 var showPara = () => {
     clearInterval(myInterval)
     time = 0;
+    minute = 0;
     document.getElementById("time").innerHTML = `${time}s`
     isTimerStarted = false
     document.getElementById("typing").value = ''
@@ -35,11 +36,16 @@ var showPara = () => {
     }
 }
 var startTime = () => {
-    time = 0;
     myInterval = setInterval(timer, 1000);
     function timer() {
         time++
-        document.getElementById("time").innerHTML = `${time}s`
+        if (time == 59) {
+            time = 0
+            minute++
+            document.getElementById("time").innerHTML = `${minute}:${time}s`
+        } else {
+            document.getElementById("time").innerHTML = `${time}s`
+        }
     }
 }
 showPara()
@@ -57,10 +63,21 @@ document.getElementById("typing").addEventListener("input", () => {
         isTimerStarted = true
     }
     currentIndex = document.getElementById("typing").value.length - 1
+    checkEnd()
+})
+var checkEnd = () => {
+    changeColor()
+    console.log(currentIndex, "type");
+    console.log(paragraphs[story].length - 1, "para");
+    if (currentIndex == paragraphs[story].length - 1) {
+        alert("done")
+    }
+}
+var changeColor = () => {
     if (document.getElementById("typing").value[currentIndex] == document.getElementById(currentIndex).innerText) {
         document.getElementById(currentIndex).style.color = "white"
     } else {
         document.getElementById(currentIndex).style.color = "#ca4754"
     }
-})
+}
 document.getElementById("reload").addEventListener("click", reload)
