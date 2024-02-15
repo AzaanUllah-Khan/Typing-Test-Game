@@ -42,6 +42,11 @@ var startTime = () => {
     }
 }
 showPara()
+document.getElementById("typing").addEventListener("keydown", function(event) {
+    if (event.ctrlKey || event.key === "ArrowLeft" || event.key === "ArrowRight") {
+        event.preventDefault();
+    }
+});
 document.getElementById("typing").addEventListener("input", () => {
     document.addEventListener("keyup", function (event) {
         if (event.key === "Backspace") {
