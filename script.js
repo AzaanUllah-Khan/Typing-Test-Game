@@ -1,12 +1,10 @@
 var story;
 var time = 0
-var minute = 0
 var currentIndex = -1;
 var myInterval;
-var isTimerStarted = false
+var isTimerStarted = false;
 document.getElementById("time").innerHTML = `${time}s`
 var paragraphs = [
-    "hhh",
     "The old, abandoned house on the hill was said to be haunted. Nobody dared to go near it after dark, for fear of encountering the ghostly figure that was rumored to wander its halls. One night, a group of teenagers decided to explore the house, determined to prove that the haunting was just a myth. As they crept through the dusty rooms, they heard strange noises and saw shadowy figures out of the corner of their eyes. Terrified, they ran out of the house and never returned, convinced that the rumors were true.",
     "Sarah had always been afraid of spiders, so when she found a large, hairy one crawling across her bedroom ceiling, she screamed for her dad to come and get rid of it. Her dad, amused by her fear, grabbed a glass and a piece of paper and gently captured the spider, taking it outside to release it. Sarah watched from a safe distance, relieved that the spider was gone. From that day on, she made sure to check her room carefully before going to bed.",
     "The spaceship landed in the middle of the town square, shocking the residents who gathered around to see who—or what—had arrived from another planet. The door of the spaceship opened, and out stepped a group of friendly aliens, waving to the crowd. They had come in peace, seeking to learn about life on Earth. The townspeople, initially fearful, soon warmed to the aliens and welcomed them with open arms. Together, they exchanged knowledge and formed a bond that would last for generations.",
@@ -83,20 +81,21 @@ var changeColor = () => {
         let currentElement = document.getElementById(currentIndex);
         currentElement.style.color = document.getElementById("typing").value[currentIndex] === currentElement.innerText ? "white" : "#ca4754";
         currentElement.lastChild.style.opacity = "0.75";
-
-        let prevSibling = currentElement.previousSibling;
-        let nextSibling = currentElement.nextSibling;
-        if (prevSibling) {
-            prevSibling.lastChild.style.opacity = "0";
-        } else {
-            currentElement.lastChild.style.opacity = "0"
+        currentElement.lastChild.style.animation = "blink .95s infinite";
+        let prevIndex = currentIndex - 1;
+        if (prevIndex >= 0) {
+            let prevElement = document.getElementById(prevIndex);
+            prevElement.lastChild.style.opacity = "0";
+            prevElement.lastChild.style.animation = "none";
         }
-        if (nextSibling) {
-            nextSibling.lastChild.style.opacity = "0";
-        } else {
-            currentElement.lastChild.style.opacity = "0"
+        let nextIndex = currentIndex + 1;
+        if (nextIndex < paragraphs[story].length) {
+            let nextElement = document.getElementById(nextIndex);
+            nextElement.lastChild.style.opacity = "0";
+            nextElement.lastChild.style.animation = "none";
         }
     }
 }
+
 
 document.getElementById("reload").addEventListener("click", showPara)

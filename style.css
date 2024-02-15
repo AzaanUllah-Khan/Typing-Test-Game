@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -38,7 +38,12 @@ nav{
     transition: opacity .3s;
     right: -4px;
 }
-.container span#time{
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.container span#time, .container span#speed{
     color: #e2b714;
     font-size: 18px;
     padding: 7px 10px;
@@ -54,6 +59,10 @@ nav{
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.045);
     border-radius: 5px;
+}
+.container p span{
+    font-family: 'Roboto Mono';
+    transition: all .189s ease-in-out;
 }
 .container input{
     display: block;
@@ -78,4 +87,12 @@ nav{
 }
 .container i:hover{
     color: #7b7b7b;
+}
+@keyframes blink {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }
