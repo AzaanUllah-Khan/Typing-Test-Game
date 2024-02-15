@@ -55,9 +55,9 @@ nav{
     width: 100%;
     text-align: center;
     color: #5d5f62;
-    font-size: 20px;
+    font-size: 16px;
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0.045);
+    /* background-color: rgba(255, 255, 255, 0.045); */
     border-radius: 5px;
 }
 .container p span{
@@ -91,6 +91,24 @@ nav{
 .container h1.g{
     font-family: 'Roboto Mono';
     margin: 20px 0;
+}
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 5px;
+    color: #646669;
+    margin-top: 20px;
+}
+footer kbd{
+    padding: 2px 5px;
+    border-radius: 5px;
+    background-color: #646669;
+    color: #323437;
+    font-family: 'Roboto Mono';
+    font-size: 12px;
+    font-weight: 500;
 }
 @keyframes blink {
     0%{
