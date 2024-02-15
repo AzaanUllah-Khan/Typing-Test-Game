@@ -24,8 +24,8 @@ var paragraphs = [
 var showPara = () => {
     clearInterval(myInterval)
     time = 0;
-    minute = 0;
     document.getElementById("time").innerHTML = `${time}s`
+    document.getElementById("speed").innerHTML = (0) + " WPM"
     isTimerStarted = false
     document.getElementById("typing").value = ''
     document.getElementById("para").innerHTML = ""
@@ -53,7 +53,7 @@ document.getElementById("typing").addEventListener("input", () => {
         isTimerStarted = true
     }
     currentIndex = document.getElementById("typing").value.length - 1
-    console.log(Math.round(((currentIndex)  / 5) / (time) * 60))
+    document.getElementById("speed").innerHTML = (Math.round(((currentIndex)  / 5) / (time) * 60)) + " WPM"
     checkEnd()
 })
 var checkEnd = () => {
