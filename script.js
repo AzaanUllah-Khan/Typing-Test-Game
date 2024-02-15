@@ -23,7 +23,7 @@ var paragraphs = [
 ];
 var showPara = () => {
     clearInterval(myInterval)
-    time = 0;
+    time = 1;
     document.getElementById("time").innerHTML = `${time}s`
     document.getElementById("speed").innerHTML = (0) + " WPM"
     isTimerStarted = false
@@ -31,7 +31,7 @@ var showPara = () => {
     document.getElementById("para").innerHTML = ""
     story = Math.floor(Math.random() * paragraphs.length)
     for (i = 0; i < paragraphs[story].length; i++) {
-        document.getElementById("para").innerHTML += `<span id='${i}' style="margin: 0 1px 0 2px">${paragraphs[story][i]}<pre></pre></span>`
+        document.getElementById("para").innerHTML += `<span id='${i}' style="margin: 0 1px 0 2px; font-size: 23px">${paragraphs[story][i]}<pre></pre></span>`
     }
 }
 var startTime = () => {
@@ -75,10 +75,6 @@ var checkEnd = () => {
         let accuracy = ((correctChars / totalChars) * 100).toFixed(2);
         alert(`Accuracy: ${accuracy}%`);
         clearInterval(myInterval)
-        time = 0;
-        minute = 0;
-        document.getElementById("time").innerHTML = `${time}s`
-        isTimerStarted = false
     }
 }
 var changeColor = () => {
