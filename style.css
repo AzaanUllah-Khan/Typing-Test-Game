@@ -88,6 +88,10 @@ nav{
 .container i:hover{
     color: #7b7b7b;
 }
+.container h1.g{
+    font-family: 'Roboto Mono';
+    margin: 20px 0;
+}
 @keyframes blink {
     0%{
         opacity: 0;
