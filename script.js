@@ -21,6 +21,24 @@ var paragraphs = [
     "The ghost of the old lighthouse keeper was said to haunt the tower, but when a group of teenagers investigated, they discovered the truth behind the legend. It turned out that the 'ghost' was just an old man who had been living in the tower, trying to scare people away so he could search for a hidden treasure. Embarrassed by their mistake, the teenagers helped the old man find the treasure, and they all became friends, laughing at the misunderstanding.",
     "The alien invasion was thwarted by a group of brave humans who fought back against the extraterrestrial invaders, saving the Earth from destruction. With courage and determination, they repelled the aliens and sent them fleeing back into space, never to return. The world celebrated their victory, grateful for the heroes who had saved them from annihilation. And as the aliens' ships disappeared into the depths of space, the humans knew that they were safe once more, thanks to their bravery and unity."
 ];
+let tPressed = false;
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'r' || event.key === 'R') {
+        tPressed = true;
+    }
+    if (tPressed && event.key === 'Enter') {
+        location.reload();
+    }
+});
+
+document.addEventListener('keyup', function(event) {
+    if (event.key === 't' || event.key === 'T') {
+        tPressed = false;
+    }
+});
+
+
 var showPara = () => {
     clearInterval(myInterval)
     time = 1;
