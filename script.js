@@ -55,6 +55,7 @@ document.getElementById("typing").addEventListener("input", () => {
         isTimerStarted = true
     }
     currentIndex = document.getElementById("typing").value.length - 1
+    console.log(Math.round(((currentIndex)  / 5) / (time) * 60))
     checkEnd()
 })
 var checkEnd = () => {
@@ -70,7 +71,6 @@ var checkEnd = () => {
         }
         let accuracy = ((correctChars / totalChars) * 100).toFixed(2);
         alert(`Accuracy: ${accuracy}%`);
-
         clearInterval(myInterval)
         time = 0;
         minute = 0;
