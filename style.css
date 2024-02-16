@@ -165,6 +165,7 @@ footer kbd{
 }
 .over{
     visibility: hidden;
+    opacity: 0;
     transition: all .45s ease-in-out;
 }
 .user h1{

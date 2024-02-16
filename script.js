@@ -121,5 +121,11 @@ var changeColor = () => {
 document.getElementById("reload")?document.getElementById("reload").addEventListener("click", showPara):""
 setTimeout(() => {
     document.querySelector(".over").style.visibility = "visible"
+    document.querySelector(".over").style.opacity = 1
     document.querySelector(".user").style.transform = "translate(-50%,-50%) scale(1)"
 }, 1000);
+document.getElementById("Uname").addEventListener("change",()=>{
+    document.querySelector(".over").style.visibility = "hidden"
+    document.querySelector(".over").style.opacity = 0
+    document.querySelector(".user").style.transform = "translate(-50%,-50%) scale(0)"
+})
