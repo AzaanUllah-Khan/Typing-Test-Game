@@ -16,6 +16,13 @@ nav{
     font-size: 14px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+nav i{
+    font-size: 24px;
+    cursor: pointer;
 }
 .container{
     width: 100%;
@@ -91,6 +98,9 @@ nav{
 .container h1.g{
     font-family: 'Roboto Mono';
     margin: 20px 0;
+}
+.container h1 span{
+    font-family: 'Roboto Mono';
 }
 footer{
     display: flex;

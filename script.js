@@ -3,7 +3,8 @@ var time = 0
 var currentIndex = -1;
 var myInterval;
 var isTimerStarted = false;
-document.getElementById("time").innerHTML = `${time}s`
+document.getElementById("time")?document.getElementById("time").innerHTML = `${time}s`:""
+document.getElementById("date")?document.getElementById("date").innerHTML = new Date().getDate() + "-" + new Date().getMonth() + "-" + new Date().getFullYear():""
 var paragraphs = [
     "The old, abandoned house on the hill was said to be haunted. Nobody dared to go near it after dark, for fear of encountering the ghostly figure that was rumored to wander its halls. One night, a group of teenagers decided to explore the house, determined to prove that the haunting was just a myth. As they crept through the dusty rooms, they heard strange noises and saw shadowy figures out of the corner of their eyes. Terrified, they ran out of the house and never returned, convinced that the rumors were true.",
     "Sarah had always been afraid of spiders, so when she found a large, hairy one crawling across her bedroom ceiling, she screamed for her dad to come and get rid of it. Her dad, amused by her fear, grabbed a glass and a piece of paper and gently captured the spider, taking it outside to release it. Sarah watched from a safe distance, relieved that the spider was gone. From that day on, she made sure to check her room carefully before going to bed.",
@@ -42,14 +43,14 @@ document.addEventListener('keyup', function(event) {
 var showPara = () => {
     clearInterval(myInterval)
     time = 1;
-    document.getElementById("time").innerHTML = `${time}s`
-    document.getElementById("speed").innerHTML = (0) + " WPM"
+    document.getElementById("time")?document.getElementById("time").innerHTML = `${time}s`:""
+    document.getElementById("speed")?document.getElementById("speed").innerHTML = (0) + " WPM":""
     isTimerStarted = false
-    document.getElementById("typing").value = ''
-    document.getElementById("para").innerHTML = ""
+    document.getElementById("typing")?document.getElementById("typing").value = '':""
+    document.getElementById("para")?document.getElementById("para").innerHTML = "":""
     story = Math.floor(Math.random() * paragraphs.length)
     for (i = 0; i < paragraphs[story].length; i++) {
-        document.getElementById("para").innerHTML += `<span id='${i}' style="margin: 0 1px 0 2px; font-size: 23px">${paragraphs[story][i]}<pre></pre></span>`
+        document.getElementById("para")?document.getElementById("para").innerHTML += `<span id='${i}' style="margin: 0 1px 0 2px; font-size: 23px">${paragraphs[story][i]}<pre></pre></span>`:""
     }
 }
 var startTime = () => {
@@ -60,12 +61,12 @@ var startTime = () => {
     }
 }
 showPara()
-document.getElementById("typing").addEventListener("keydown", function(event) {
+document.getElementById("typing")?document.getElementById("typing").addEventListener("keydown", function(event) {
     if (event.ctrlKey || event.key === "ArrowLeft" || event.key === "ArrowRight") {
         event.preventDefault();
     }
-});
-document.getElementById("typing").addEventListener("input", () => {
+}):"";
+document.getElementById("typing")?document.getElementById("typing").addEventListener("input", () => {
     document.addEventListener("keyup", function (event) {
         if (event.key === "Backspace") {
             document.getElementById(currentIndex + 1).style.color = "#5d5f62"
@@ -78,7 +79,7 @@ document.getElementById("typing").addEventListener("input", () => {
     currentIndex = document.getElementById("typing").value.length - 1
     document.getElementById("speed").innerHTML = (Math.round(((currentIndex)  / 5) / (time) * 60)) + " WPM"
     checkEnd()
-})
+}):""
 var checkEnd = () => {
     changeColor();
     if (currentIndex == paragraphs[story].length - 1) {
@@ -117,4 +118,4 @@ var changeColor = () => {
 }
 
 
-document.getElementById("reload").addEventListener("click", showPara)
+document.getElementById("reload")?document.getElementById("reload").addEventListener("click", showPara):""
