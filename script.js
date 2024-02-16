@@ -119,3 +119,7 @@ var changeColor = () => {
 
 
 document.getElementById("reload")?document.getElementById("reload").addEventListener("click", showPara):""
+setTimeout(() => {
+    document.querySelector(".over").style.visibility = "visible"
+    document.querySelector(".user").style.transform = "translate(-50%,-50%) scale(1)"
+}, 1000);
