@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
 </head>
-<body> 
+<body>
+    <div class="over" style="width: 100%; height: 100vh !important; background-color: #00000035; position: absolute; top: 0; backdrop-filter: blur(1px); z-index: 100;"></div>
     <nav><h1>Typing Game</h1><i class="fa-solid fa-ranking-star" onclick="location.href = 'rank.html'"></i></nav>
     <div class="container">
         <div class="flex">
@@ -22,6 +23,10 @@
     <footer>
         <kbd>R</kbd>&nbsp;+&nbsp;<kbd>Enter</kbd>&nbsp;-&nbsp;restart
     </footer>
+    <div class="user">
+        <h1>Enter Your Name</h1>
+        <input type="text" id="Uname" placeholder="Enter Your Name">
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
