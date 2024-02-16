@@ -41,6 +41,7 @@ document.addEventListener('keyup', function(event) {
 
 
 var showPara = () => {
+    document.getElementById("nameP").innerHTML = localStorage.getItem("name")
     clearInterval(myInterval)
     time = 1;
     document.getElementById("time")?document.getElementById("time").innerHTML = `${time}s`:""
@@ -119,14 +120,15 @@ var changeColor = () => {
 
 
 document.getElementById("reload")?document.getElementById("reload").addEventListener("click", showPara):""
-setTimeout(() => {
+localStorage.getItem("name")?"":setTimeout(() => {
     document.querySelector(".over").style.visibility = "visible"
     document.querySelector(".over").style.opacity = 1
     document.querySelector(".user").style.transform = "translate(-50%,-50%) scale(1)"
 }, 1000);
-document.getElementById("Uname").addEventListener("change",(inp)=>{
-    if(inp.value != ""){
-        localStorage.setItem("name",inp.value)
+document.getElementById("Uname").addEventListener("change",()=>{
+    if(document.getElementById("Uname").value != ""){
+        localStorage.setItem("name",document.getElementById("Uname").value)
+        document.getElementById("nameP").innerHTML = localStorage.getItem("name")
         document.querySelector(".over").style.visibility = "hidden"
         document.querySelector(".over").style.opacity = 0
         document.querySelector(".user").style.transform = "translate(-50%,-50%) scale(0)"
