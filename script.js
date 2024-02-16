@@ -121,6 +121,7 @@ var changeColor = () => {
 
 document.getElementById("reload")?document.getElementById("reload").addEventListener("click", showPara):""
 localStorage.getItem("name")?"":setTimeout(() => {
+    document.getElementById("popH1").innerHTML = "Enter Your Name"
     document.querySelector(".over").style.visibility = "visible"
     document.querySelector(".over").style.opacity = 1
     document.querySelector(".user").style.transform = "translate(-50%,-50%) scale(1)"
@@ -134,3 +135,10 @@ document.getElementById("Uname").addEventListener("change",()=>{
         document.querySelector(".user").style.transform = "translate(-50%,-50%) scale(0)"
     }
 })
+function editName(){
+    document.getElementById("popH1").innerHTML = "Edit Your Name"
+    document.getElementById("Uname").value = localStorage.getItem("name")
+    document.querySelector(".over").style.visibility = "visible"
+    document.querySelector(".over").style.opacity = 1
+    document.querySelector(".user").style.transform = "translate(-50%,-50%) scale(1)"
+}

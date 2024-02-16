@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="over" id="over" style="width: 100%; height: 100vh !important; background-color: #00000035; position: absolute; top: 0; backdrop-filter: blur(1px); z-index: 100;"></div>
-    <nav><h1>Typing Game</h1><span style="display: flex; align-items: center; gap: 10px; font-size: 16px;"><span id="nameP">AzaanUllah Khan</span><i class="fa-solid fa-ranking-star" onclick="location.href = 'rank.html'"></i></span></nav>
+    <nav><h1>Typing Game</h1><span style="display: flex; align-items: center; gap: 20px; font-size: 16px;"><span id="nameP" onclick="editName()" style="cursor: pointer;"></span><i class="fa-solid fa-ranking-star" onclick="location.href = 'rank.html'"></i><i class="fa fa-sign-out" onclick="localStorage.removeItem('name')"></i></span></nav>
     <div class="container">
         <div class="flex">
             <span id="time">59s</span>
@@ -24,7 +24,7 @@
         <kbd>R</kbd>&nbsp;+&nbsp;<kbd>Enter</kbd>&nbsp;-&nbsp;restart
     </footer>
     <div class="user">
-        <h1>Enter Your Name</h1>
+        <h1 id="popH1" style="cursor: pointer;">Enter Your Name</h1>
         <input type="text" id="Uname" placeholder="Enter Your Name">
     </div>
     <script src="script.js"></script>
