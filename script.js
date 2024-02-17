@@ -94,6 +94,7 @@ var checkEnd = () => {
         }
         let accuracy = ((correctChars / totalChars) * 100).toFixed(2);
         document.getElementById("acc").innerHTML = accuracy + "%"
+        document.getElementById("typing").disabled = true
         clearInterval(myInterval)
     }
 }
