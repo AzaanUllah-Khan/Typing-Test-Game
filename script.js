@@ -154,3 +154,12 @@ function editName() {
     document.querySelector(".over").style.opacity = 1
     document.querySelector(".user").style.transform = "translate(-50%,-50%) scale(1)"
 }
+// Add an event listener to re-focus the input element when it loses focus
+document.getElementById("typing").addEventListener("blur", function() {
+    document.getElementById("typing").focus();
+});
+
+// Add an event listener to prevent clicks on the paragraph from removing focus
+document.getElementById("para").addEventListener("mousedown", function(event) {
+    event.preventDefault();
+});
