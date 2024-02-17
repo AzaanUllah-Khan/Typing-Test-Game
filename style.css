@@ -50,7 +50,7 @@ nav i{
     align-items: center;
     justify-content: space-between;
 }
-.container span#time, .container span#speed{
+.container span#time, .container span#speed, .container span#acc{
     color: #e2b714;
     font-size: 18px;
     padding: 7px 10px;

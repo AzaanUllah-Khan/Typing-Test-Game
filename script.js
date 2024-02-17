@@ -3,6 +3,7 @@ var time = 0
 var currentIndex = -1;
 var myInterval;
 var isTimerStarted = false;
+document.getElementById("acc").style.display = "none"
 document.getElementById("time")?document.getElementById("time").innerHTML = `${time}s`:""
 document.getElementById("date")?document.getElementById("date").innerHTML = new Date().getDate() + "-" + new Date().getMonth() + "-" + new Date().getFullYear():""
 var paragraphs = [
@@ -42,6 +43,7 @@ document.addEventListener('keyup', function(event) {
 
 var showPara = () => {
     document.getElementById("nameP").innerHTML = localStorage.getItem("name")
+    document.getElementById("acc").style.display = "none"
     clearInterval(myInterval)
     time = 1;
     document.getElementById("time")?document.getElementById("time").innerHTML = `${time}s`:""
@@ -84,6 +86,7 @@ document.getElementById("typing")?document.getElementById("typing").addEventList
 var checkEnd = () => {
     changeColor();
     if (currentIndex == paragraphs[story].length - 1) {
+        document.getElementById("acc").style.display = "flex"
         let typedText = document.getElementById("typing").value;
         let totalChars = paragraphs[story].length;
         let correctChars = 0;
@@ -93,8 +96,8 @@ var checkEnd = () => {
             }
         }
         let accuracy = ((correctChars / totalChars) * 100).toFixed(2);
-        document.getElementById("acc").innerHTML = accuracy + "%"
         document.getElementById("typing").disabled = true
+        document.getElementById("acc").innerHTML = accuracy + "%"
         clearInterval(myInterval)
     }
 }
