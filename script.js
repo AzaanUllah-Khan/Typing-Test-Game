@@ -4,8 +4,8 @@ var currentIndex = -1;
 var myInterval;
 var isTimerStarted = false;
 document.getElementById("acc").style.display = "none"
-document.getElementById("time")?document.getElementById("time").innerHTML = `${time}s`:""
-document.getElementById("date")?document.getElementById("date").innerHTML = new Date().getDate() + "-" + new Date().getMonth() + "-" + new Date().getFullYear():""
+document.getElementById("time") ? document.getElementById("time").innerHTML = `${time}s` : ""
+document.getElementById("date") ? document.getElementById("date").innerHTML = new Date().getDate() + "-" + new Date().getMonth() + "-" + new Date().getFullYear() : ""
 var paragraphs = [
     "The old, abandoned house on the hill was said to be haunted. Nobody dared to go near it after dark, for fear of encountering the ghostly figure that was rumored to wander its halls. One night, a group of teenagers decided to explore the house, determined to prove that the haunting was just a myth. As they crept through the dusty rooms, they heard strange noises and saw shadowy figures out of the corner of their eyes. Terrified, they ran out of the house and never returned, convinced that the rumors were true.",
     "Sarah had always been afraid of spiders, so when she found a large, hairy one crawling across her bedroom ceiling, she screamed for her dad to come and get rid of it. Her dad, amused by her fear, grabbed a glass and a piece of paper and gently captured the spider, taking it outside to release it. Sarah watched from a safe distance, relieved that the spider was gone. From that day on, she made sure to check her room carefully before going to bed.",
@@ -25,7 +25,7 @@ var paragraphs = [
 ];
 let tPressed = false;
 
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', function (event) {
     if (event.key === 'r' || event.key === 'R') {
         tPressed = true;
     }
@@ -34,7 +34,7 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-document.addEventListener('keyup', function(event) {
+document.addEventListener('keyup', function (event) {
     if (event.key === 't' || event.key === 'T') {
         tPressed = false;
     }
@@ -46,14 +46,14 @@ var showPara = () => {
     document.getElementById("acc").style.display = "none"
     clearInterval(myInterval)
     time = 1;
-    document.getElementById("time")?document.getElementById("time").innerHTML = `${time}s`:""
-    document.getElementById("speed")?document.getElementById("speed").innerHTML = (0) + " WPM":""
+    document.getElementById("time") ? document.getElementById("time").innerHTML = `${time}s` : ""
+    document.getElementById("speed") ? document.getElementById("speed").innerHTML = (0) + " WPM" : ""
     isTimerStarted = false
-    document.getElementById("typing")?document.getElementById("typing").value = '':""
-    document.getElementById("para")?document.getElementById("para").innerHTML = "":""
+    document.getElementById("typing") ? document.getElementById("typing").value = '' : ""
+    document.getElementById("para") ? document.getElementById("para").innerHTML = "" : ""
     story = Math.floor(Math.random() * paragraphs.length)
     for (i = 0; i < paragraphs[story].length; i++) {
-        document.getElementById("para")?document.getElementById("para").innerHTML += `<span id='${i}' style="margin: 0 1px 0 2px; font-size: 23px">${paragraphs[story][i]}<pre></pre></span>`:""
+        document.getElementById("para") ? document.getElementById("para").innerHTML += `<span id='${i}' style="border-radius:5px;margin: 0 1px 0 2px; font-size: 23px">${paragraphs[story][i]}<pre></pre></span>` : ""
     }
 }
 var startTime = () => {
@@ -64,12 +64,12 @@ var startTime = () => {
     }
 }
 showPara()
-document.getElementById("typing")?document.getElementById("typing").addEventListener("keydown", function(event) {
+document.getElementById("typing") ? document.getElementById("typing").addEventListener("keydown", function (event) {
     if (event.ctrlKey || event.key === "ArrowLeft" || event.key === "ArrowRight") {
         event.preventDefault();
     }
-}):"";
-document.getElementById("typing")?document.getElementById("typing").addEventListener("input", () => {
+}) : "";
+document.getElementById("typing") ? document.getElementById("typing").addEventListener("input", () => {
     document.addEventListener("keyup", function (event) {
         if (event.key === "Backspace") {
             document.getElementById(currentIndex + 1).style.color = "#5d5f62"
@@ -80,9 +80,9 @@ document.getElementById("typing")?document.getElementById("typing").addEventList
         isTimerStarted = true
     }
     currentIndex = document.getElementById("typing").value.length - 1
-    document.getElementById("speed").innerHTML = (Math.round(((currentIndex)  / 5) / (time) * 60)) + " WPM"
+    document.getElementById("speed").innerHTML = (Math.round(((currentIndex) / 5) / (time) * 60)) + " WPM"
     checkEnd()
-}):""
+}) : ""
 var checkEnd = () => {
     changeColor();
     if (currentIndex == paragraphs[story].length - 1) {
@@ -104,7 +104,14 @@ var checkEnd = () => {
 var changeColor = () => {
     if (currentIndex >= 0 && currentIndex < paragraphs[story].length) {
         let currentElement = document.getElementById(currentIndex);
-        currentElement.style.color = document.getElementById("typing").value[currentIndex] === currentElement.innerText ? "white" : "#ca4754";
+        let typedChar = document.getElementById("typing").value[currentIndex];
+        console.log(currentElement.innerHTML);
+        if (currentElement.innerHTML == ' <pre style="opacity: 0; animation: auto ease 0s 1 normal none running none;"></pre>') {
+            currentElement.style.backgroundColor = document.getElementById("typing").value[currentIndex] === currentElement.innerText ? "" : "#ca475424";
+        } else {
+            currentElement.style.color = document.getElementById("typing").value[currentIndex] === currentElement.innerText ? "white" : "#ca4754";
+        }
+
         currentElement.lastChild.style.opacity = "0.75";
         currentElement.lastChild.style.animation = "blink .95s infinite";
         let prevIndex = currentIndex - 1;
@@ -123,23 +130,24 @@ var changeColor = () => {
 }
 
 
-document.getElementById("reload")?document.getElementById("reload").addEventListener("click", showPara):""
-localStorage.getItem("name")?"":setTimeout(() => {
+
+document.getElementById("reload") ? document.getElementById("reload").addEventListener("click", showPara) : ""
+localStorage.getItem("name") ? "" : setTimeout(() => {
     document.getElementById("popH1").innerHTML = "Enter Your Name"
     document.querySelector(".over").style.visibility = "visible"
     document.querySelector(".over").style.opacity = 1
     document.querySelector(".user").style.transform = "translate(-50%,-50%) scale(1)"
 }, 1000);
-document.getElementById("Uname").addEventListener("change",()=>{
-    if(document.getElementById("Uname").value != ""){
-        localStorage.setItem("name",document.getElementById("Uname").value)
+document.getElementById("Uname").addEventListener("change", () => {
+    if (document.getElementById("Uname").value != "") {
+        localStorage.setItem("name", document.getElementById("Uname").value)
         document.getElementById("nameP").innerHTML = localStorage.getItem("name")
         document.querySelector(".over").style.visibility = "hidden"
         document.querySelector(".over").style.opacity = 0
         document.querySelector(".user").style.transform = "translate(-50%,-50%) scale(0)"
     }
 })
-function editName(){
+function editName() {
     document.getElementById("popH1").innerHTML = "Edit Your Name"
     document.getElementById("Uname").value = localStorage.getItem("name")
     document.querySelector(".over").style.visibility = "visible"
