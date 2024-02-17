@@ -93,7 +93,7 @@ var checkEnd = () => {
             }
         }
         let accuracy = ((correctChars / totalChars) * 100).toFixed(2);
-        alert(`Accuracy: ${accuracy}%`);
+        document.getElementById("acc").innerHTML = accuracy + "%"
         clearInterval(myInterval)
     }
 }
