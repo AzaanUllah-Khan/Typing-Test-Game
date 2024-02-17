@@ -73,6 +73,7 @@ document.getElementById("typing") ? document.getElementById("typing").addEventLi
     document.addEventListener("keyup", function (event) {
         if (event.key === "Backspace") {
             document.getElementById(currentIndex + 1).style.color = "#5d5f62"
+            document.getElementById(currentIndex + 1).style.backgroundColor = "#323437"
         }
     });
     if (!isTimerStarted) {
@@ -104,8 +105,6 @@ var checkEnd = () => {
 var changeColor = () => {
     if (currentIndex >= 0 && currentIndex < paragraphs[story].length) {
         let currentElement = document.getElementById(currentIndex);
-        let typedChar = document.getElementById("typing").value[currentIndex];
-        console.log(currentElement.innerHTML);
         if (currentElement.innerHTML == ' <pre style="opacity: 0; animation: auto ease 0s 1 normal none running none;"></pre>') {
             currentElement.style.backgroundColor = document.getElementById("typing").value[currentIndex] === currentElement.innerText ? "" : "#ca475424";
         } else {
@@ -154,12 +153,9 @@ function editName() {
     document.querySelector(".over").style.opacity = 1
     document.querySelector(".user").style.transform = "translate(-50%,-50%) scale(1)"
 }
-// Add an event listener to re-focus the input element when it loses focus
 document.getElementById("typing").addEventListener("blur", function() {
     document.getElementById("typing").focus();
 });
-
-// Add an event listener to prevent clicks on the paragraph from removing focus
 document.getElementById("para").addEventListener("mousedown", function(event) {
     event.preventDefault();
 });
