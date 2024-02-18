@@ -17,9 +17,7 @@ const db = getFirestore(app);
 document.getElementById("para").addEventListener("click",async()=>{
     try {
         const docRef = await addDoc(collection(db, "users"), {
-          first: "Ada",
-          last: "Lovelace",
-          born: 1815
+          typer: localStorage.getItem("name")
         });
         console.log("Document written with ID: ", docRef.id);
       } catch (e) {
