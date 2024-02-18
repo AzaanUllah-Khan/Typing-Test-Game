@@ -42,6 +42,7 @@ document.addEventListener('keyup', function (event) {
 
 
 var showPara = () => {
+    document.getElementById("typing").focus();
     document.getElementById("nameP").innerHTML = localStorage.getItem("name")
     document.getElementById("acc").style.display = "none"
     clearInterval(myInterval)
