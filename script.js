@@ -100,6 +100,8 @@ var checkEnd = () => {
         let accuracy = ((correctChars / totalChars) * 100).toFixed(2);
         document.getElementById("typing").disabled = true
         document.getElementById("acc").innerHTML = accuracy + "% Accuracy"
+        localStorage.setItem("type",(Math.round(((currentIndex) / 5) / (time) * 60)))
+        localStorage.setItem("accuracy",accuracy)
         clearInterval(myInterval)
     }
 }

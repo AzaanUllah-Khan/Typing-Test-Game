@@ -17,7 +17,9 @@ const db = getFirestore(app);
 document.getElementById("para").addEventListener("click",async()=>{
     try {
         const docRef = await addDoc(collection(db, "users"), {
-          typer: localStorage.getItem("name")
+          typer: localStorage.getItem("name"),
+          wpm: localStorage.getItem("type"),
+          acc:localStorage.getItem("accuracy")
         });
         console.log("Document written with ID: ", docRef.id);
       } catch (e) {
