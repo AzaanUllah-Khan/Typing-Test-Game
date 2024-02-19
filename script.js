@@ -145,6 +145,7 @@ document.getElementById("Uname").addEventListener("change", () => {
         document.querySelector(".over").style.visibility = "hidden"
         document.querySelector(".over").style.opacity = 0
         document.querySelector(".user").style.transform = "translate(-50%,-50%) scale(0)"
+        document.getElementById('typing').focus();
     }
 })
 function editName() {
@@ -154,9 +155,10 @@ function editName() {
     document.querySelector(".over").style.opacity = 1
     document.querySelector(".user").style.transform = "translate(-50%,-50%) scale(1)"
 }
-document.getElementById("typing").addEventListener("blur", function() {
-    document.getElementById("typing").focus();
-});
-document.getElementById("para").addEventListener("mousedown", function(event) {
-    event.preventDefault();
+document.addEventListener('click', function(event) {
+    if (event.target.id !== 'Uname' && event.target.id !== "nameP") {
+        document.getElementById('typing').focus();
+    } else {
+        document.getElementById('typing').blur();
+    }
 });
