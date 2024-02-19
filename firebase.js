@@ -14,15 +14,17 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
-document.getElementById("para").addEventListener("click",async()=>{
-    try {
-        const docRef = await addDoc(collection(db, "users"), {
-          typer: localStorage.getItem("name"),
-          wpm: localStorage.getItem("type"),
-          acc:localStorage.getItem("accuracy")
-        });
-        console.log("Document written with ID: ", docRef.id);
-      } catch (e) {
-        console.error("Error adding document: ", e);
-      }
-})
+document.getElementById("typing").addEventListener("input",async()=>{
+    if(document.getElementById("typing").value.length == localStorage.getItem("length")){
+        try {
+            const docRef = await addDoc(collection(db, "users"), {
+                typer: localStorage.getItem("name"),
+                wpm: localStorage.getItem("type"),
+                acc:localStorage.getItem("accuracy")
+            });
+            console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+            console.error("Error adding document: ", e);
+        }
+    }
+    })

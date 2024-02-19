@@ -53,6 +53,7 @@ var showPara = () => {
     document.getElementById("typing") ? document.getElementById("typing").value = '' : ""
     document.getElementById("para") ? document.getElementById("para").innerHTML = "" : ""
     story = Math.floor(Math.random() * paragraphs.length)
+    localStorage.setItem("length",paragraphs[story].length)
     for (i = 0; i < paragraphs[story].length; i++) {
         document.getElementById("para") ? document.getElementById("para").innerHTML += `<span id='${i}' style="border-radius:5px;margin: 0 1px 0 2px; font-size: 23px">${paragraphs[story][i]}<pre></pre></span>` : ""
     }
