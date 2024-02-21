@@ -3,9 +3,9 @@ var time = 0
 var currentIndex = -1;
 var myInterval;
 var isTimerStarted = false;
-document.getElementById("acc").style.display = "none"
+document.getElementById("acc")?document.getElementById("acc").style.display = "none":""
 document.getElementById("time") ? document.getElementById("time").innerHTML = `${time}s` : ""
-document.getElementById("date") ? document.getElementById("date").innerHTML = new Date().getDate() + "-" + new Date().getMonth() + "-" + new Date().getFullYear() : ""
+document.getElementById("date") ? document.getElementById("date").innerHTML = new Date().getDate() + "-" + Number(new Date().getMonth()+1) + "-" + new Date().getFullYear() : ""
 var paragraphs = [
     "The old, abandoned house on the hill was said to be haunted. Nobody dared to go near it after dark, for fear of encountering the ghostly figure that was rumored to wander its halls. One night, a group of teenagers decided to explore the house, determined to prove that the haunting was just a myth. As they crept through the dusty rooms, they heard strange noises and saw shadowy figures out of the corner of their eyes. Terrified, they ran out of the house and never returned, convinced that the rumors were true.",
     "Sarah had always been afraid of spiders, so when she found a large, hairy one crawling across her bedroom ceiling, she screamed for her dad to come and get rid of it. Her dad, amused by her fear, grabbed a glass and a piece of paper and gently captured the spider, taking it outside to release it. Sarah watched from a safe distance, relieved that the spider was gone. From that day on, she made sure to check her room carefully before going to bed.",
@@ -42,9 +42,9 @@ document.addEventListener('keyup', function (event) {
 
 
 var showPara = () => {
-    document.getElementById("typing").focus();
-    document.getElementById("nameP").innerHTML = localStorage.getItem("name")
-    document.getElementById("acc").style.display = "none"
+    document.getElementById("typing")?document.getElementById("typing").focus():""
+    document.getElementById("nameP")?document.getElementById("nameP").innerHTML = localStorage.getItem("name"):""
+    document.getElementById("acc")?document.getElementById("acc").style.display = "none":""
     clearInterval(myInterval)
     time = 1;
     document.getElementById("time") ? document.getElementById("time").innerHTML = `${time}s` : ""
@@ -141,7 +141,7 @@ localStorage.getItem("name") ? "" : setTimeout(() => {
     document.querySelector(".over").style.opacity = 1
     document.querySelector(".user").style.transform = "translate(-50%,-50%) scale(1)"
 }, 1000);
-document.getElementById("Uname").addEventListener("change", () => {
+document.getElementById("Uname")?document.getElementById("Uname").addEventListener("change", () => {
     if (document.getElementById("Uname").value != "") {
         localStorage.setItem("name", document.getElementById("Uname").value)
         document.getElementById("nameP").innerHTML = localStorage.getItem("name")
@@ -150,7 +150,7 @@ document.getElementById("Uname").addEventListener("change", () => {
         document.querySelector(".user").style.transform = "translate(-50%,-50%) scale(0)"
         document.getElementById('typing').focus();
     }
-})
+}):""
 function editName() {
     document.getElementById("popH1").innerHTML = "Edit Your Name"
     document.getElementById("Uname").value = localStorage.getItem("name")
