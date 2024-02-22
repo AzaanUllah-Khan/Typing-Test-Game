@@ -23,7 +23,7 @@ document.getElementById("typing")?.addEventListener("input", async () => {
     if (document.getElementById("typing").value.length == localStorage.getItem("length")) {
         try {
             if (localStorage.getItem("accuracy") >= 75) {
-                const docRef = await addDoc(collection(db, "users"), {
+                const docRef = await addDoc(collection(db, "typers"), {
                     typer: localStorage.getItem("name"),
                     wpm: Number(localStorage.getItem("type")),
                     acc: Number(localStorage.getItem("accuracy"))
@@ -35,7 +35,7 @@ document.getElementById("typing")?.addEventListener("input", async () => {
         }
     }
 })
-const q = query(collection(db, "users"), orderBy("wpm", "desc"), limit(10));
+const q = query(collection(db, "typers"), orderBy("wpm", "desc"), limit(10));
 let serial = 0
 const querySnapshot = await getDocs(q);
 querySnapshot.forEach((doc) => {
