@@ -22,7 +22,7 @@ const db = getFirestore(app);
 document.getElementById("typing")?.addEventListener("input", async () => {
     if (document.getElementById("typing").value.length == localStorage.getItem("length")) {
         try {
-            if (localStorage.getItem("accuracy") >= 45) {
+            if (localStorage.getItem("accuracy") >= 75) {
                 const docRef = await addDoc(collection(db, "users"), {
                     typer: localStorage.getItem("name"),
                     wpm: Number(localStorage.getItem("type")),
