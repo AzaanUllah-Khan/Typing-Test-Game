@@ -14,6 +14,7 @@ document.getElementById("table") ? document.getElementById("table").innerHTML = 
 <th>Rank</th>
 <th>Name</th>
 <th>WPM</th>
+<th>Accuracy</th>
 </tr>`: ""
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
@@ -35,14 +36,27 @@ document.getElementById("typing")?.addEventListener("input", async () => {
         }
     }
 })
-const q = query(collection(db, "typers"), orderBy("wpm", "desc"), limit(10));
-let serial = 0
+const q = query(
+    collection(db, "typers"),
+    orderBy("wpm", "desc"),
+    orderBy("acc", "desc"),
+    limit(10)
+  );
+let serial = 1
+var firstTd
 const querySnapshot = await getDocs(q);
 querySnapshot.forEach((doc) => {
+    if(serial == 1 || serial == 2 || serial == 3){
+        firstTd = `<td style="display:flex; align-items:center; justify-content: center"><img src="./assets/${serial}.png" width=25/></td>`
+        serial++
+    }else{
+        firstTd = `<td style="font-size: 18px; text-align: center">${serial++}</td>`
+    }
     document.getElementById("table") ? document.getElementById("table").innerHTML += `<tr>
-    <td>${++serial}</td>
+    ${firstTd}
     <td>${doc.data().typer}</td>
     <td>${doc.data().wpm} WPM</td>
+    <td>${(doc.data().acc).toFixed(2)}%</td>
 </tr>`: ""
     console.log(doc.id, " => ", doc.data());
 });
