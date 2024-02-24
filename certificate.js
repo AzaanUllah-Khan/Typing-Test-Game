@@ -15,13 +15,13 @@ const getPdf = async (name, wpm, acc) => {
         font: customFont 
     })
     firstPg.drawText(wpm, {
-        x: 404,
+        x: 405,
         y: 233,
         size: 22,
         color: rgb(1, 1, 1),
     })
     firstPg.drawText(acc, {
-        x: 554,
+        x: 553,
         y: 232,
         size: 22,
         color: rgb(1, 1, 1),
