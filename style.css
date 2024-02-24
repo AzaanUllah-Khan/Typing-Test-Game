@@ -57,6 +57,14 @@ nav i{
     background-color: rgba(255, 255, 255, 0.045);
     border-radius: 5px;
 }
+.container span#c{
+    background-color: #e2b714;
+    font-size: 18px;
+    padding: 7px 10px;
+    color: #323437;
+    border-radius: 5px;
+    cursor: pointer;
+}
 .container p{
     margin: 20px 0 0;
     width: 100%;
