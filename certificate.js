@@ -28,9 +28,17 @@ const getPdf = async (name, wpm, acc) => {
     })
     const uri = await PDFDoc.saveAsBase64({ dataUri: true })
     document.getElementById("cert").src = uri
+    document.getElementById("c").addEventListener("click",()=>{
+        const link = document.createElement("a");
+        link.href = uri;
+        link.download = localStorage.getItem("name")+"-TyPost";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    })
 }
 document.getElementById("typing").addEventListener("input",()=>{
     if (document.getElementById("typing").value.length == localStorage.getItem("length")) {
-        getPdf(localStorage.getItem("name"),localStorage.getItem("type"),`${localStorage.getItem("accuracy").split(".")[0]}%`)
+        getPdf(localStorage.getItem("name"),localStorage.getItem("type"),`${Math.round(localStorage.getItem("accuracy"))}%`)
     }
 })

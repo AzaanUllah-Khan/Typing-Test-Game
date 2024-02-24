@@ -119,6 +119,7 @@ var checkEnd = () => {
         localStorage.setItem("type",(Math.round(((currentIndex) / 5) / (time) * 60)))
         localStorage.setItem("accuracy",accuracy)
         clearInterval(myInterval)
+        document.getElementById("c").style.display = "flex"
     }
 }
 var changeColor = () => {
