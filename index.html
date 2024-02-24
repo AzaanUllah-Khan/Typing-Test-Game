@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="over" id="over" style="width: 100%; height: 100vh !important; background-color: #00000035; position: absolute; top: 0; backdrop-filter: blur(1px); z-index: 100;"></div>
-    <nav><h1>Typing Game</h1><span style="display: flex; align-items: center; gap: 20px; font-size: 16px;"><span id="nameP" onclick="editName()" style="cursor: pointer;"></span><i class="fa-solid fa-ranking-star" onclick="location.href = 'rank.html'"></i></span></nav>
+    <nav><h1>TyPost Game.</h1><span style="display: flex; align-items: center; gap: 20px; font-size: 16px;"><span id="nameP" onclick="editName()" style="cursor: pointer;"></span><i class="fa-solid fa-ranking-star" onclick="location.href = 'rank.html'"></i></span></nav>
     <div class="container">
         <div class="flex">
             <span id="time">59s</span>
@@ -30,7 +30,10 @@
         <h1 id="popH1" style="cursor: pointer;">Enter Your Name</h1>
         <input type="text" id="Uname" placeholder="Enter Your Name">
     </div>
+    <iframe src="" id="cert" frameborder="0" width="470" height="390"></iframe>
     <script src="script.js"></script>
     <script src="firebase.js" type="module"></script>
+    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+    <script src="certificate.js"></script>
 </body>
 </html>
