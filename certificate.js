@@ -8,23 +8,20 @@ const getPdf = async (name, wpm, acc) => {
     const pages = PDFDoc.getPages()
     const firstPg = pages[0]
     firstPg.drawText(name, {
-        x: 260,
-        y: 283,
-        size: 50,
-        color: rgb(1, 1, 1),
+        x: 150,
+        y: 320,
+        size: 60,
         font: customFont 
     })
     firstPg.drawText(wpm, {
-        x: 405,
-        y: 233,
-        size: 22,
-        color: rgb(1, 1, 1),
+        x: 245,
+        y: 221,
+        size: 24,
     })
     firstPg.drawText(acc, {
-        x: 553,
-        y: 232,
-        size: 22,
-        color: rgb(1, 1, 1),
+        x: 580,
+        y: 221,
+        size: 24,
     })
     const uri = await PDFDoc.saveAsBase64({ dataUri: true })
     document.getElementById("cert").src = uri
@@ -39,6 +36,6 @@ const getPdf = async (name, wpm, acc) => {
 }
 document.getElementById("typing").addEventListener("input",()=>{
     if (document.getElementById("typing").value.length == localStorage.getItem("length")) {
-        getPdf(localStorage.getItem("name"),localStorage.getItem("type"),`${Math.round(localStorage.getItem("accuracy"))}%`)
+        getPdf(localStorage.getItem("name"),`${localStorage.getItem("type")} WPM`,`${Math.round(localStorage.getItem("accuracy"))}%`)
     }
 })
