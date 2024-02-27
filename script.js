@@ -57,6 +57,7 @@ document.addEventListener('keyup', function (event) {
 
 
 var showPara = () => {
+    document.getElementById("c").style.display = "none"
     document.getElementById("typing")?document.getElementById("typing").focus():""
     document.getElementById("nameP")?document.getElementById("nameP").innerHTML = localStorage.getItem("name"):""
     document.getElementById("acc")?document.getElementById("acc").style.display = "none":""
