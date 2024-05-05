@@ -27,4 +27,4 @@ tyPOST is a typing test game that lets you measure your typing speed and accurac
 
 ### Credits
 
-tyPOST was created by [Your Name].
+tyPOST was created by AzaanUllah Khan.
