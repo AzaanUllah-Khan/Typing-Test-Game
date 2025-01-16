@@ -91,7 +91,7 @@ document.getElementById("typing") ? document.getElementById("typing").addEventLi
     document.addEventListener("keyup", function (event) {
         if (event.key === "Backspace") {
             document.getElementById(currentIndex + 1).style.color = "#5d5f62"
-            document.getElementById(currentIndex + 1).style.backgroundColor = "#323437"
+            document.getElementById(currentIndex + 1).style.backgroundColor = "#cce2ff"
         }
     });
     if (!isTimerStarted) {
